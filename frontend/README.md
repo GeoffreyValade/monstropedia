@@ -1,27 +1,27 @@
-# EN
+<!-- language-all: lang=en -->
 
 # **Monstropedia**
 
-Monstropedia is a tool that allows users to search, create, and manage monster characteristics through a one-page interface. This project uses **VueJS** for the front-end and **FastAPI** for the back-end.
+Monstropedia is a tool that allows users to search, create, and manage monster characteristics through a simple, one-page interface. This project uses **VueJS** for the front-end and **FastAPI** for the back-end.
 
 ---
 
 ## **Description**
 
-Monstropedia enables users to manage monster data via a simple and clear interface. The tool primarily works with a **JSON** file that simulates a database for monster characteristics. However, please note that this file is **volatile** and loses modifications once the server is restarted.
+Monstropedia allows users to manage monster data through an intuitive and clean interface. The tool primarily uses a **JSON** file that simulates a database for storing monster characteristics. However, please note that this file is **volatile**. Any changes made to the data will be lost upon server restart, as the changes are stored in memory.
 
 ---
 
 ## **Installation**
 
-### Prerequisites
+### **Prerequisites**
 
-Before you begin, ensure you have the following tools installed:
+Before getting started, ensure you have the following tools installed:
 
 - **Node.js** (for the front-end)
 - **Python** (for the back-end)
 
-### Installation Steps
+### **Installation Steps**
 
 1. **Clone the repository:**
 
@@ -31,7 +31,7 @@ Before you begin, ensure you have the following tools installed:
 
 2. **Front-End**
 
-    Navigate to the front-end folder, then install the dependencies and start the development server.
+    Navigate to the front-end folder, then install the dependencies and start the development server:
 
     ```bash
     cd frontend
@@ -41,7 +41,7 @@ Before you begin, ensure you have the following tools installed:
 
 3. **Back-End**
 
-    Navigate to the back-end folder, install the dependencies, and start the application with **Uvicorn**.
+    Navigate to the back-end folder, install the dependencies, and start the application with **Uvicorn**:
 
     ```bash
     cd backend
@@ -53,43 +53,47 @@ Before you begin, ensure you have the following tools installed:
 
 ## **Usage**
 
-The project offers the following features:
+The project provides the following features:
 
-- **Retrieve JSON File**: You can retrieve monster data from the provided JSON file.
-- **Write to Server's RAM**: Changes made to the monsters are temporarily stored in the server's RAM.
-- **Delete Objects**: You can delete monsters that already exist in the JSON file.
+- **Retrieve Monster Data**: Fetch monster data from the provided JSON file.
+- **Temporary Storage**: Any modifications made to the monsters are temporarily stored in the server's memory (RAM). These changes will not persist after a server restart.
+- **Delete Monsters**: You can remove monsters that already exist in the JSON file.
 
-### Limitations
+### **Limitations**
 
-- **No Writing to JSON File**: It is currently impossible to write directly to the JSON file from the application. Changes must be made manually in the JSON file.
-- **JSON Simulating a Database**: The JSON file acts as a database but is not a true persistent database. Any changes will be lost after restarting the server.
+- **No Direct Write to JSON File**: Currently, it is impossible to write directly to the JSON file from the application. If you need to save changes permanently, you must manually update the JSON file.
+- **Volatile Data Storage**: The JSON file serves as a temporary data store. All changes made in the application are stored in RAM and will be lost when the server is restarted.
 
 ---
 
 ## **Contributing**
 
-Currently, this project does not accept external contributions.
+Currently, this project does not accept external contributions. However, feel free to fork the repository and make your own modifications.
 
 ---
 
 ## **Tests**
 
-There are no unit tests defined for this project at the moment.
+There are no unit tests defined for this project at the moment. Contributions in this area are welcome!
 
 ---
 
 ## **Licenses**
 
-No license has been defined for this project yet. You can check the documentation for the technologies used for more information about their respective licenses.
+No official license has been defined for this project. For the respective licenses of the technologies used, refer to their official documentation:
+
+- **VueJS**: [VueJS License](https://vuejs.org/)
+- **FastAPI**: [FastAPI License](https://fastapi.tiangolo.com/)
+- **Uvicorn**: [Uvicorn License](https://www.uvicorn.org/)
 
 ---
 
 ## **Technologies Used**
 
-- **VueJS**: JavaScript framework for the front-end.
-- **Axios**: Library for making HTTP requests on the front-end.
-- **FastAPI**: Python framework for building fast and modern APIs.
-- **Uvicorn**: ASGI server for the back-end.
+- **VueJS**: A JavaScript framework for building user interfaces.
+- **Axios**: A library for making HTTP requests, used in the front-end for interacting with the back-end.
+- **FastAPI**: A Python framework for building fast and modern APIs.
+- **Uvicorn**: An ASGI server to run the FastAPI application.
 
 ---
 
@@ -101,38 +105,38 @@ No license has been defined for this project yet. You can check the documentatio
 
 ## **Note**
 
-If you'd like more information about the versions of **VueJS**, **FastAPI**, or **Uvicorn** used, you can check them in the configuration files:
+If you'd like to learn more about the specific versions of **VueJS**, **FastAPI**, or **Uvicorn** used in the project, you can check the following configuration files:
 
-- **`package.json`** for **VueJS** and **Axios**.
-- **`requirements.txt`** for **FastAPI** and **Uvicorn**.
+- **`package.json`** for **VueJS** and **Axios** versions.
+- **`requirements.txt`** for **FastAPI** and **Uvicorn** versions.
+
+----------------------------------------------------------
 
 
-----------------------------------------------------------------------------------------------------------------------------------
-
-# FR
+<!-- language-all: lang=fr -->
 
 # **Monstropedia**
 
-Monstropedia est un outil qui permet aux utilisateurs de rechercher, créer et gérer les caractéristiques des monstres via une interface one-page. Ce projet utilise **VueJS** pour le front-end et **FastAPI** pour le back-end.
+Monstropedia est un outil permettant aux utilisateurs de rechercher, créer et gérer les caractéristiques des monstres via une interface simple sur une seule page. Ce projet utilise **VueJS** pour le front-end et **FastAPI** pour le back-end.
 
 ---
 
 ## **Description**
 
-Monstropedia permet aux utilisateurs de gérer les données des monstres à travers une interface simple et claire. L'outil fonctionne principalement avec un fichier **JSON** qui simule une base de données pour les caractéristiques des monstres. Cependant, veuillez noter que ce fichier est **volatile** et perd les modifications une fois le serveur redémarré.
+Monstropedia permet aux utilisateurs de gérer les données des monstres via une interface intuitive et claire. L'outil utilise principalement un fichier **JSON** qui simule une base de données pour stocker les caractéristiques des monstres. Cependant, il est important de noter que ce fichier est **volatile**. Toutes les modifications apportées aux données seront perdues lors du redémarrage du serveur, car les modifications sont stockées en mémoire.
 
 ---
 
 ## **Installation**
 
-### Prérequis
+### **Prérequis**
 
-Avant de commencer, assurez-vous d'avoir installé les outils suivants :
+Avant de commencer, assurez-vous d'avoir les outils suivants installés :
 
 - **Node.js** (pour le front-end)
 - **Python** (pour le back-end)
 
-### Étapes d'installation
+### **Étapes d'installation**
 
 1. **Clonez le dépôt :**
 
@@ -142,7 +146,7 @@ Avant de commencer, assurez-vous d'avoir installé les outils suivants :
 
 2. **Front-End**
 
-    Naviguez vers le dossier du front-end, puis installez les dépendances et lancez le serveur de développement.
+    Allez dans le dossier du front-end, puis installez les dépendances et lancez le serveur de développement :
 
     ```bash
     cd frontend
@@ -152,7 +156,7 @@ Avant de commencer, assurez-vous d'avoir installé les outils suivants :
 
 3. **Back-End**
 
-    Naviguez vers le dossier du back-end, installez les dépendances, puis lancez l'application avec **Uvicorn**.
+    Allez dans le dossier du back-end, installez les dépendances et lancez l'application avec **Uvicorn** :
 
     ```bash
     cd backend
@@ -164,43 +168,47 @@ Avant de commencer, assurez-vous d'avoir installé les outils suivants :
 
 ## **Utilisation**
 
-Le projet offre les fonctionnalités suivantes :
+Le projet propose les fonctionnalités suivantes :
 
-- **Récupérer le fichier JSON** : Vous pouvez récupérer les données des monstres depuis le fichier JSON fourni.
-- **Écrire en mémoire vive du serveur** : Les modifications apportées aux monstres sont temporairement stockées en mémoire vive du serveur.
-- **Supprimer des objets** : Vous pouvez supprimer des monstres déjà existants dans le fichier JSON.
+- **Récupérer les données des monstres** : Récupérez les données des monstres à partir du fichier JSON fourni.
+- **Stockage temporaire** : Toute modification apportée aux monstres est stockée temporairement dans la mémoire (RAM) du serveur. Ces modifications ne persisteront pas après un redémarrage du serveur.
+- **Supprimer des monstres** : Vous pouvez supprimer les monstres déjà présents dans le fichier JSON.
 
-### Limitations
+### **Limitations**
 
-- **Pas d'écriture dans le fichier JSON** : Il est actuellement impossible d'écrire directement dans le fichier JSON depuis l'application. Les modifications doivent être faites manuellement dans le fichier JSON.
-- **JSON simulant une base de données** : Le fichier JSON agit comme une base de données mais ne constitue pas une véritable base de données persistante. Toute modification sera perdue après un redémarrage du serveur.
+- **Pas d'écriture directe dans le fichier JSON** : Il est actuellement impossible d'écrire directement dans le fichier JSON depuis l'application. Si vous avez besoin de sauvegarder les modifications de manière permanente, vous devez mettre à jour manuellement le fichier JSON.
+- **Stockage volatile des données** : Le fichier JSON sert de stockage temporaire. Toutes les modifications effectuées dans l'application sont stockées en RAM et seront perdues lors du redémarrage du serveur.
 
 ---
 
 ## **Contribuer**
 
-Actuellement, ce projet n'accepte pas de contributions externes.
+Actuellement, ce projet n'accepte pas les contributions externes. Cependant, n'hésitez pas à forker le dépôt et à effectuer vos propres modifications.
 
 ---
 
 ## **Tests**
 
-Aucun test unitaire n'a été défini pour ce projet pour le moment.
+Aucun test unitaire n'a été défini pour ce projet pour le moment. Les contributions dans ce domaine sont les bienvenues !
 
 ---
 
 ## **Licences**
 
-Aucune licence n'a encore été définie pour ce projet. Vous pouvez consulter la documentation des technologies utilisées pour plus d'informations sur leurs licences respectives.
+Aucune licence officielle n'a été définie pour ce projet. Pour les licences respectives des technologies utilisées, veuillez consulter leur documentation officielle :
+
+- **VueJS** : [VueJS License](https://vuejs.org/)
+- **FastAPI** : [FastAPI License](https://fastapi.tiangolo.com/)
+- **Uvicorn** : [Uvicorn License](https://www.uvicorn.org/)
 
 ---
 
 ## **Technologies utilisées**
 
-- **VueJS** : Framework JavaScript pour le front-end.
-- **Axios** : Bibliothèque pour effectuer des requêtes HTTP sur le front-end.
-- **FastAPI** : Framework Python pour créer des APIs rapides et modernes.
-- **Uvicorn** : Serveur ASGI pour le back-end.
+- **VueJS** : Un framework JavaScript pour construire des interfaces utilisateurs.
+- **Axios** : Une bibliothèque pour effectuer des requêtes HTTP, utilisée dans le front-end pour interagir avec le back-end.
+- **FastAPI** : Un framework Python pour construire des API rapides et modernes.
+- **Uvicorn** : Un serveur ASGI pour exécuter l'application FastAPI.
 
 ---
 
@@ -212,8 +220,7 @@ Aucune licence n'a encore été définie pour ce projet. Vous pouvez consulter l
 
 ## **Note**
 
-Si vous souhaitez plus d'informations sur les versions de **VueJS**, **FastAPI**, ou **Uvicorn** utilisées, vous pouvez les consulter dans les fichiers de configuration :
+Si vous souhaitez en savoir plus sur les versions spécifiques de **VueJS**, **FastAPI** ou **Uvicorn** utilisées dans le projet, vous pouvez consulter les fichiers de configuration suivants :
 
-- **`package.json`** pour **VueJS** et **Axios**.
-- **`requirements.txt`** pour **FastAPI** et **Uvicorn**.
-
+- **`package.json`** pour les versions de **VueJS** et **Axios**.
+- **`requirements.txt`** pour les versions de **FastAPI** et **Uvicorn**.
