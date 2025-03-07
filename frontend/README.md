@@ -1,3 +1,5 @@
+# EN
+
 # **Monstropedia**
 
 Monstropedia is a tool that allows users to search, create, and manage monster characteristics through a one-page interface. This project uses **VueJS** for the front-end and **FastAPI** for the back-end.
@@ -105,9 +107,9 @@ If you'd like more information about the versions of **VueJS**, **FastAPI**, or 
 - **`requirements.txt`** for **FastAPI** and **Uvicorn**.
 
 
---------------------------
+----------------------------------------------------------------------------------------------------------------------------------
 
-
+# FR
 
 # **Monstropedia**
 
