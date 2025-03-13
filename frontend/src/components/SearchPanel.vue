@@ -4,7 +4,6 @@ import axios from 'axios'
 
 const emit = defineEmits(['update:monsters'])
 
-
 const monsters = ref([]) // on initialise un tableau vide "monsters" pour accueillir nos données de response.data
 const types = ref([]) // on initialise un tableau vide "types" pour accueillir nos données de response.data
 const alignments = ref([])
