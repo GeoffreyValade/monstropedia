@@ -48,7 +48,7 @@ const createNewMonster = async (id, updatedData) => {
 
 <template>
 
-  <div>
+  <div class="monstropedia-header">
     <button class="edit-button" @click="toggleEdit">
       <img class="feather-icon" src="/feather-pen128.png" alt="Edit" />
     </button>
@@ -68,6 +68,14 @@ const createNewMonster = async (id, updatedData) => {
 </template>
 
 <style scoped>
+
+.monstropedia-header {
+  display:inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width:100%;
+
+}
 
 button {
   position:relative;
