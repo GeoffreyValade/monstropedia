@@ -11,6 +11,32 @@ const isEditing = ref(false)
 const toggleEdit = () => {
   isEditing.value = !isEditing.value
 }
+
+const createNewMonster = async (id, updatedData) => {
+  try {
+    const response = await axios.post(`http://localhost:8000/monster/`, {
+      id, 
+      name: updatedData.name,
+      types: updatedData.types,
+      cr: updatedData.cr,
+      alignment: updatedData.alignment,
+      ac: updatedData.ac,
+      hp: updatedData.hp,
+      height: updatedData.height,
+      speed: updatedData.speed,
+      legendary: updatedData.legendary
+    })
+
+    if (response.status === 200) {
+      const index = monsters.value.findIndex(monster => monster.id === id)
+      if (index !== -1) {
+        Object.assign(monsters.value[index], response.data)
+      }
+    }
+  } catch (error) {
+    console.error("Erreur lors de l'édition du monstre :", error)
+  }
+}
 </script>
 
 <template>
@@ -21,10 +47,18 @@ const toggleEdit = () => {
   <MonsterCreateForm 
       v-if="isEditing" 
       :monster="monster" 
-      @update-monster="$emit('edit', monster.id, $event)" 
+      @update-monster="createNewMonster" 
     />
 
   <h1>Monstropedia</h1>
   <MonsterList />
 </template>
 
+<style scoped>
+
+button {
+  position:relative;
+  z-index:100;
+}
+
+</style>

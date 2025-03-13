@@ -1,13 +1,29 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 
 const props = defineProps({
   monster: Object
 })
 
-const emit = defineEmits(['update-monster'])
+const emit = defineEmits(['update-monster', 'close'])
 
-const updatedData = ref({ ...props.monster }) // on crée une copie de la props dans data pour respecter les bonnes pratiques de vue
+const updatedData = ref({ ...props.monster }) 
+const formRef = ref(null) 
+
+const handleClickOutside = (event) => {
+  if (formRef.value && !formRef.value.contains(event.target)) {
+    emit('close')
+  }
+}
+
+onMounted(async () => {
+  await nextTick()
+  document.addEventListener('click', handleClickOutside)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
 
 const submitEdit = () => {
   emit('update-monster', updatedData.value)
@@ -15,10 +31,15 @@ const submitEdit = () => {
 </script>
 
 <template>
-  <form @submit.prevent="submitEdit">
+  <form ref="formRef" @submit.prevent="submitEdit">
     <label>
       Name :
       <input v-model="updatedData.name" type="text" required />
+    </label>
+
+    <label>
+      Alignment :
+      <input v-model="updatedData.alignment" type="text" required />
     </label>
 
     <label>
@@ -62,19 +83,19 @@ const submitEdit = () => {
 
 <style scoped>
 form {
-  position:absolute;
+  position: absolute;
   display: flex;
-  flex-direction: column; 
-  left:100%;
-  top:0;
-  min-width:80%;
+  flex-direction: column;
+  left: 100%;
+  top: 0;
+  min-width: 80%;
   color: black;
   text-align: left;
   background: #fdf1dc;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  z-index:100;
+  z-index: 100;
 }
 
 label {

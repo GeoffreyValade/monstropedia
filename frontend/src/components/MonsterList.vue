@@ -7,8 +7,12 @@ const monsters = ref([]) // on initialise un tableau vide "monsters" pour accuei
 const types = ref([]) // on initialise un tableau vide "types" pour accueillir nos données de response.data
 const alignments = ref([])
 const nameFilter = ref('')
-const selectedAlignment = ref('All')
 const selectedType = ref('All')
+const selectedAlignment = ref('All')
+const selectedHealth = ref('Any')
+const selectedArmor = ref('Any')
+const selectedChallenge = ref('Any')
+const selectedLegendary = ref('Any')
 
 const fetchTypes = async () => {
   try {
@@ -91,38 +95,70 @@ const buttonText = computed(() => {
 </script>
 
 <template>
-  <div>
+  <div class="search-panel">
+    <input v-model="nameFilter" placeholder="Search by name"/>
     <div class="filters">
-      <input v-model="nameFilter" placeholder="Search by name"/>
       <div>
-        <label for="alignmentFilter">Alignment filter : </label>
+        <label for="typeFilter">Type : </label>
+        <select v-model="selectedType">
+          <option v-for="type in types" :key="type" :value="type" >{{ type }}</option>
+        </select>
+      </div>
+      <div>
+        <label for="alignmentFilter">Alignment : </label>
         <select v-model="selectedAlignment">
           <option v-for="alignment in alignments" :key="alignment" :value="alignment">{{ alignment }}</option>
         </select>
       </div>
       <div>
-        <label for="typeFilter">Type filter : </label>
-        <select v-model="selectedType">
-          <option v-for="type in types" :key="type" :value="type" >{{ type }}</option>
+        <label for="healthFilter">Health Points : </label>
+        <select id="healthFilter" v-model="selectedHealth">
+          <option v-for="(label, value) in { Any: 'Any', True: 'Yes', False: 'No' }" :key="value" :value="value">
+            {{ label }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <label for="armorFilter">Armor Class : </label>
+        <select id="armorFilter" v-model="selectedArmor">
+          <option v-for="(label, value) in { Any: 'Any', True: 'Yes', False: 'No' }" :key="value" :value="value">
+            {{ label }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <label for="challengeFilter">Challenge Rate : </label>
+        <select id="challengeFilter" v-model="selectedChallenge">
+          <option v-for="(label, value) in { Any: 'Any', True: 'Yes', False: 'No' }" :key="value" :value="value">
+            {{ label }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <label for="legendaryFilter">Legendary ? </label>
+        <select id="legendaryFilter" v-model="selectedLegendary">
+          <option v-for="(label, value) in { Any: 'Any', True: 'Yes', False: 'No' }" :key="value" :value="value">
+            {{ label }}
+          </option>
         </select>
       </div>
     </div>
-
     <button @click="fetchMonsters">{{ buttonText }}</button>
-
-    <div class="monster-list">
-      <MonsterCard
-        v-for="monster in monsters"
-        :key="monster.id"
-        :monster="monster"
-        @delete="deleteMonster"
-        @edit="editMonster"
-      />
-    </div>
+  </div>
+    
+  <div class="monster-list">
+    <MonsterCard
+      v-for="monster in monsters"
+      :key="monster.id"
+      :monster="monster"
+      @delete="deleteMonster"
+      @edit="editMonster"
+    />
   </div>
 </template>
 
 <style scoped>
+
 .monster-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -149,7 +185,27 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.filters input {
+.search-panel {
+  display:inline-flex;
+  flex-direction: column;
+  gap:20px;
+  align-items: center;
+  width:100%;
+}
+
+.filters {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:10px;
+  text-align:left;
+}
+
+.filters div {
+  display:flex;
+  gap:5px;
+}
+
+input {
   margin: 0.5em;
   padding: 0.6em;
   font-size: 1em;

@@ -18,25 +18,27 @@ const toggleEdit = () => {
         <span><b>Challenge Rate :</b> {{ monster.cr }}</span>
       <h2>{{ monster.name }}</h2>
       <ul>
-        <li><b>Alignment :</b> {{ monster.alignment }}</li>
         <li><b>Type :</b> {{ monster.types }}</li>
+        <li><b>Alignment :</b> {{ monster.alignment }}</li>
         <li><b>AC :</b> {{ monster.ac }} | <b>HP :</b> {{ monster.hp }}</li>
         <li><b>Speed :</b> {{ monster.speed }} | <b>Height :</b> {{ monster.height }}</li>
         <li><b>Legendary :</b> {{ monster.legendary ? 'Yes' : 'No' }}</li>
       </ul>
-      <button class="edit-button" @click="toggleEdit">
+      <button class="edit-button" @click.stop="toggleEdit">
         <img class="feather-icon" src="/feather-pen128.png" alt="Edit" />
       </button>
+
       <button class="delete-button" @click="$emit('delete', monster.id)">
         <img class="skull-icon" src="/skull128.png" alt="Delete" />
       </button>
     </div>
 
     <MonsterEditForm 
-      v-if="isEditing"
-      :monster="monster" 
-      @update-monster="$emit('edit', monster.id, $event)" 
-    /> 
+  v-if="isEditing"
+  :monster="monster"
+  @update-monster="$emit('edit', monster.id, $event)" 
+  @close="isEditing = false" 
+/>
   </div>
 </template>
 
@@ -52,10 +54,11 @@ h2 {
 
 .monster-card {
   position: relative;
+  text-align: center;
   color: #6D0000;
   padding: 10px;
   margin: 10px;
-  min-height: 200px;
+  min-height: 230px;
   min-width:20%;
   border-radius: 5px;
   background: #fdf1dc;

@@ -51,10 +51,12 @@ button:focus-visible {
 }
 
 #app {
+  display:inline-flex;
+  flex-direction: column;
   min-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  align-items: center;
 }
 
 @media (prefers-color-scheme: light) {

@@ -56,23 +56,25 @@ const submitCreation = () => {
       <input v-model="data.legendary" type="checkbox" />
     </label>
 
-    <button type="submit">Create Monster</button>
+    <button type="submit">Create this !</button>
   </form>
 </template>
 
 <style scoped>
 form {
-  position:absolute;
-  left:100%;
-  top:0;
-  min-width:100%;
+  position:fixed;
+  left:30%;
+  top:30%;
+  right:30%;
+  min-width:30%;
+  min-height:50%;
   color: black;
   text-align: left;
   background: #fdf1dc;
   padding: 10px;
   border-radius: 5px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  z-index:100;
+  z-index:99;
 }
 
 label {
