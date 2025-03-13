@@ -2,10 +2,17 @@
 import { ref } from 'vue'
 import MonsterList from './components/MonsterList.vue'
 import MonsterCreateForm from './components/MonsterCreateForm.vue'
+import SearchPanel from './components/SearchPanel.vue'
 
 defineProps({
   monster: Object
 })
+
+const monsters = ref([])
+
+const updateMonsters = (newMonsters) => {
+  monsters.value = newMonsters
+}
 
 const isEditing = ref(false)
 const toggleEdit = () => {
@@ -40,18 +47,24 @@ const createNewMonster = async (id, updatedData) => {
 </script>
 
 <template>
-  <button class="edit-button" @click="toggleEdit">
-    <img class="feather-icon" src="/feather-pen128.png" alt="Edit" />
-  </button>
 
-  <MonsterCreateForm 
-      v-if="isEditing" 
-      :monster="monster" 
-      @update-monster="createNewMonster" 
-    />
+  <div>
+    <button class="edit-button" @click="toggleEdit">
+      <img class="feather-icon" src="/feather-pen128.png" alt="Edit" />
+    </button>
+  
+    <MonsterCreateForm 
+        v-if="isEditing" 
+        :monster="monster" 
+        @update-monster="createNewMonster" 
+      />
+    <h1>Monstropedia</h1>
+  </div>
 
-  <h1>Monstropedia</h1>
-  <MonsterList />
+  <SearchPanel @update:monsters="updateMonsters" />
+  
+  <MonsterList :monsters="monsters" />
+
 </template>
 
 <style scoped>
